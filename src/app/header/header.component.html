@@ -1,0 +1,14 @@
+<div class="headerComponent">
+    <img [src]="imageUrlLogo" [alt]="titleLogo" >
+    <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
+        <img [src]="imageUrlOpen" [alt]="titleOpen">
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Bâtiment</button>
+      <button mat-menu-item>Services</button>
+      <button mat-menu-item>Fabrication</button>
+      <button mat-menu-item>Alimentation</button>
+    </mat-menu>
+</div>
+
+
