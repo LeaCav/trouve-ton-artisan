@@ -10,7 +10,15 @@ img{
     width: 20%;
 }
 
-.menuButton{
+.search {
+    border-right: 2px solid #0074C7;
+    border-bottom: 2px solid #0074C7;
+}
+input{
+    border: none;
+}
+
+.menuButton {
     background-color: #0074C7;
     color: white;
     border-radius: 10;

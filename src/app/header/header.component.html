@@ -1,5 +1,11 @@
 <div class="headerComponent">
     <img [src]="imageUrlLogo" [alt]="titleLogo" >
+
+    <div class="search">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Rechercher un artisan..." />
+      <img src="" alt="">
+    </div>
+    
     <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
         <img [src]="imageUrlOpen" [alt]="titleOpen">
     </button>
@@ -9,6 +15,18 @@
       <button mat-menu-item>Fabrication</button>
       <button mat-menu-item>Alimentation</button>
     </mat-menu>
+</div>
+
+<div *ngIf="filteredArtisans.length">
+  <h3>Résultats de la recherche :</h3>
+  <ul>
+    <li *ngFor="let artisan of filteredArtisans">
+      {{ artisan.name }} - {{ artisan.specialty }} ({{ artisan.location }})
+    </li>
+  </ul>
+</div>
+<div *ngIf="!filteredArtisans.length && searchQuery">
+  <p>Aucun artisan trouvé pour "{{ searchQuery }}".</p>
 </div>
 
 
