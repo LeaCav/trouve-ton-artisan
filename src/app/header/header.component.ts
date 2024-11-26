@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ArtisanService } from '../artisan.service';
 import { Artisan } from '../model/artisan';
+import { SearchPipe } from '../pipe/search.pipe';
 
 @Component({
   selector: 'app-header',
@@ -17,10 +18,12 @@ import { Artisan } from '../model/artisan';
             MatButtonModule,
             MatMenuTrigger,
             CommonModule,
-            FormsModule],
+            FormsModule,
+            SearchPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
+
 export class HeaderComponent implements OnInit{
   imageUrlLogo!: string;
   titleLogo!: string;
@@ -47,7 +50,7 @@ export class HeaderComponent implements OnInit{
     this.filteredArtisans = [...this.artisans];
   }
 
-  ngOnChanges(): void {
+  updateFilteredArtisans(): void {
     if (!this.searchQuery) {
       this.filteredArtisans = [...this.artisans];
       return;

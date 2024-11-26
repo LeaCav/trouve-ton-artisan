@@ -2,7 +2,7 @@
     <img [src]="imageUrlLogo" [alt]="titleLogo" >
 
     <div class="search">
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Rechercher un artisan..." />
+      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
       <img src="" alt="">
     </div>
     
@@ -17,16 +17,14 @@
     </mat-menu>
 </div>
 
-<div *ngIf="filteredArtisans.length">
+<div *ngIf="searchQuery">
   <h3>Résultats de la recherche :</h3>
   <ul>
-    <li *ngFor="let artisan of filteredArtisans">
+    <li *ngFor="let artisan of artisans | search: searchQuery">
       {{ artisan.name }} - {{ artisan.specialty }} ({{ artisan.location }})
     </li>
   </ul>
-</div>
-<div *ngIf="!filteredArtisans.length && searchQuery">
-  <p>Aucun artisan trouvé pour "{{ searchQuery }}".</p>
+  <p *ngIf="(artisans | search: searchQuery).length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
 </div>
 
 
