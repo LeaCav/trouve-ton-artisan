@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit{
     this.titleLogo = 'Trouve ton Artisan';
     this.imageUrlOpen = '/img/icons8-open-30.png';
     this.imageUrlOpen = 'Ouvrir';
-    this.imageUrlSearch = '/img/icons8-loupe-64.jpg';
+    this.imageUrlSearch = '/img/icons8-loupe-64.png';
     this.titleSearch = 'rechercher';
 
     this.artisans = this.artisanService.getArtisans();

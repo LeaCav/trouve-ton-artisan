@@ -1,20 +1,20 @@
-<div class="headerComponent">
-    <img [src]="imageUrlLogo" [alt]="titleLogo" >
+<div class="headerComponent" >
+    <img class="logo" [src]="imageUrlLogo" [alt]="titleLogo" [routerLink]="''">
 
-    <div class="search">
-      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
-      <img src="" alt="">
-    </div>
+  <div class="search">
+    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
+    <img src="" alt="">
+  </div>
     
-    <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
-        <img [src]="imageUrlOpen" [alt]="titleOpen">
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Bâtiment</button>
-      <button mat-menu-item>Services</button>
-      <button mat-menu-item>Fabrication</button>
-      <button mat-menu-item>Alimentation</button>
-    </mat-menu>
+  <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
+      <img [src]="imageUrlOpen" [alt]="titleOpen">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Bâtiment</button>
+    <button mat-menu-item>Services</button>
+    <button mat-menu-item>Fabrication</button>
+    <button mat-menu-item>Alimentation</button>
+  </mat-menu>
 </div>
 
 <div *ngIf="searchQuery">

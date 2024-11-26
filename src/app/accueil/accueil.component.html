@@ -1,0 +1,31 @@
+<div class="accueilComponent">
+    <div class="choice">
+        <h1>Comment trouver mon artisan ?</h1>
+        <ol>
+            <li>Choisir la catégorie d'artisanat dans le menu.</li>
+            <li>Choisir un artisan.</li>
+            <li>Le contacter via le formulaire de contact.</li>
+            <li><strong>Une réponse sera apportée sous 48h.</strong></li>
+        </ol>
+    </div>
+
+    <div class="monthArtisan">
+        <h1>Top artisans du mois</h1>
+
+        <mat-slider min="0" max="{{topArtisans.length - 1}}" step="1" value="0" (change)="onSlideChange($event)">
+            <input matSliderThumb>
+        </mat-slider>
+
+        <div *ngIf="topArtisans.length > 0">
+            <div *ngFor="let artisan of topArtisans; let i = index">
+                <div *ngIf="i === sliderIndex">
+                    <img [src]="artisan.imageUrl" alt="{{artisan.name}}">
+                    <h2>{{artisan.name}}</h2>
+                    <strong>{{artisan.note}} /5</strong>
+                    <p>{{artisan.specialty}}</p>
+                    <p>{{artisan.location}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

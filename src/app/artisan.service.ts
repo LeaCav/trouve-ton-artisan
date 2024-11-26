@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 interface Artisan {
   id: number;
+  imageUrl: string;
   name: string;
   specialty: string;
   note: number;
@@ -19,6 +20,7 @@ interface Artisan {
 export class ArtisanService {
   private artisans: Artisan[] = [
     { id: 1,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Vallis Bellemare',
       specialty: 'Plombier',
       note : 4,
@@ -30,6 +32,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 2,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Amitee Lécuyer',
       specialty: 'Couturier',
       note : 4.5,
@@ -41,6 +44,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 3,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Leala Dennis',
       specialty: 'Coiffeur',
       note : 3.8,
@@ -52,6 +56,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 4,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Chocolaterie Labbé',
       specialty: 'Chocolatier',
       note : 4.9,
@@ -63,6 +68,7 @@ export class ArtisanService {
       top: true,
     },
     { id: 5,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Claude Quinn',
       specialty: 'Bijoutier',
       note : 4.2,
@@ -74,6 +80,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 6,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Valérie Laderoute',
       specialty: 'Toiletteur',
       note : 4.5,
@@ -85,6 +92,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 7,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Boutot & fils',
       specialty: 'Menuisier',
       note : 4.7,
@@ -96,6 +104,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 8,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'CM Graphisme',
       specialty: 'Webdesign',
       note : 4.4,
@@ -107,6 +116,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 9,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Orville Salmons',
       specialty: 'Chauffagiste',
       note : 5,
@@ -118,6 +128,7 @@ export class ArtisanService {
       top: true,
     },
     { id: 10,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Au pain chaud',
       specialty: 'Boulanger',
       note : 4.8,
@@ -129,6 +140,7 @@ export class ArtisanService {
       top: true,
     },
     { id: 11,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Boucherie Dumont',
       specialty: 'Boucher',
       note : 4.5,
@@ -140,6 +152,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 12,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Mont Blanc Eléctricité',
       specialty: 'Electricien',
       note : 4.5,
@@ -151,6 +164,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 13,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Traiteur Truchon',
       specialty: 'Traiteur',
       note : 4.1,
@@ -162,6 +176,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 14,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Le monde des fleurs',
       specialty: 'Fleuriste',
       note : 4.6,
@@ -173,6 +188,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 15,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Royden Charbonneau',
       specialty: 'Carrossier',
       note : 3.8,
@@ -184,6 +200,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 16,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'Ernest Carignan',
       specialty: 'Ferronier',
       note : 5,
@@ -195,6 +212,7 @@ export class ArtisanService {
       top: false,
     },
     { id: 17,
+      imageUrl: '/img/icons8-image-100.png',
       name: 'C\'est sup\'hair',
       specialty: 'Coiffeur',
       note : 4.1,
@@ -210,6 +228,10 @@ export class ArtisanService {
 
   getArtisans(): Artisan[] {
     return this.artisans;
+  }
+
+  getTopArtisan(): Artisan[] {
+    return this.artisans.filter(artisan => artisan.top);
   }
 
   constructor() { }

@@ -1,5 +1,6 @@
 export interface Artisan {
     id: number;
+    imageUrl: string;
     name: string;
     specialty: string;
     note: number;
