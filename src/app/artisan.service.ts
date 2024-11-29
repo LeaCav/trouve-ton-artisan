@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 interface Artisan {
   id: number;
-  imageUrl: string;
-  name: string;
+  imageUrl: string; //imageUrl est actuellement une image par défault, elle sera ensuite remplacée par un lien vers une image du site
+  name: string;     // de l'artisan s'il en a un ou par une image fournie par celui-ci.
   specialty: string;
   note: number;
   location: string;
@@ -228,10 +228,6 @@ export class ArtisanService {
 
   getArtisans(): Artisan[] {
     return this.artisans;
-  }
-
-  getTopArtisan(): Artisan[] {
-    return this.artisans.filter(artisan => artisan.top);
   }
 
   constructor() { }

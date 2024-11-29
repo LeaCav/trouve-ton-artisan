@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ArtisanService } from '../artisan.service';
 import { Artisan } from '../model/artisan';
+import { TopArtisansPipe } from '../pipe/top-artisans.pipe';
 
 @Component({
   selector: 'app-accueil',
@@ -13,19 +14,21 @@ import { Artisan } from '../model/artisan';
   imports: [RouterModule,
             MatSliderModule,
             CommonModule,
-            FormsModule],
+            FormsModule,
+            TopArtisansPipe],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.css'
 })
 export class AccueilComponent implements OnInit{
   sliderIndex: number = 0;
+  artisans: Artisan[] = [];
   topArtisans: Artisan[] = [];
 
   constructor(private artisanService: ArtisanService) {}
 
   ngOnInit(): void {
-    this.topArtisans = this.artisanService.getTopArtisan();
-    // console.log(this.topArtisans);
+    this.artisans = this.artisanService.getArtisans();
+    this.topArtisans = this.artisans.filter(artisan => artisan.top);
     this.sliderIndex = 0;
   }
 

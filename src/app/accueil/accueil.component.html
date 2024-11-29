@@ -16,9 +16,9 @@
             <input matSliderThumb>
         </mat-slider>
 
-        <div *ngIf="topArtisans.length > 0">
-            <div *ngFor="let artisan of topArtisans; let i = index">
-                <div *ngIf="i === sliderIndex">
+        <div *ngIf="topArtisans.length > 0"> <!--vérifier si topArtisans contient au moins une ligne-->
+            <div *ngFor="let artisan of artisans | topArtisans; let i = index"> <!--permet d'itérer dans un tableau et de générer un élément html pour chaque élément de ce tableau, le pipe filtre les données-->
+                <div *ngIf="i === sliderIndex"> <!--i prends successivement les valeurs des diférentes lignes générées par *ngFor-->
                     <img [src]="artisan.imageUrl" alt="{{artisan.name}}">
                     <h2>{{artisan.name}}</h2>
                     <strong>{{artisan.note}} /5</strong>

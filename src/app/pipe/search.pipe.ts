@@ -18,4 +18,4 @@ export class SearchPipe implements PipeTransform {
       artisan.location.toLocaleLowerCase().includes(lowerCaseQuery)
     );
   }
-} 
+}

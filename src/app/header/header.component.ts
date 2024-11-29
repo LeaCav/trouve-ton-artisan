@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit{
     this.imageUrlLogo = '/img/Logo.png';
     this.titleLogo = 'Trouve ton Artisan';
     this.imageUrlOpen = '/img/icons8-open-30.png';
-    this.imageUrlOpen = 'Ouvrir';
+    this.titleOpen = 'Ouvrir';
     this.imageUrlSearch = '/img/icons8-loupe-64.png';
     this.titleSearch = 'rechercher';
 
@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit{
     this.filteredArtisans = [...this.artisans];
   }
 
+  //filtrer les artisans par nom, spécialité ou localisation
   updateFilteredArtisans(): void {
     if (!this.searchQuery) {
       this.filteredArtisans = [...this.artisans];
@@ -63,5 +64,10 @@ export class HeaderComponent implements OnInit{
       artisan.specialty.toLowerCase().includes(lowerCaseQuery) ||
       artisan.location.toLowerCase().includes(lowerCaseQuery)
     );
+  }
+
+  //réinitialiser le champ de la barre de recherche au clic sur un artisan
+  resetSearch(): void {
+    this.searchQuery = '';
   }
 }

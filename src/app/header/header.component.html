@@ -1,13 +1,26 @@
 <div class="headerComponent" >
     <img class="logo" [src]="imageUrlLogo" [alt]="titleLogo" [routerLink]="''">
 
-  <div class="search">
-    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
-    <img src="" alt="">
+  <div class="searchContain">
+    <div class="search">
+      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
+      <img class="icon" [src]="imageUrlSearch" [alt]="titleSearch">
+    </div>
+  
+    <div *ngIf="searchQuery">
+      <h3>Résultats de la recherche :</h3>
+      <ul>
+        <li class="listeArtisan" *ngFor="let artisan of artisans | search: searchQuery" [routerLink]="'Error404'" (click)="resetSearch()">
+          {{ artisan.name }} - {{ artisan.specialty }} ({{ artisan.location }})
+        </li>
+      </ul>
+      <p *ngIf="(artisans | search: searchQuery).length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
+    </div>
   </div>
+  
     
   <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
-      <img [src]="imageUrlOpen" [alt]="titleOpen">
+      <img class="icon" [src]="imageUrlOpen" [alt]="titleOpen">
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>Bâtiment</button>
@@ -17,14 +30,5 @@
   </mat-menu>
 </div>
 
-<div *ngIf="searchQuery">
-  <h3>Résultats de la recherche :</h3>
-  <ul>
-    <li *ngFor="let artisan of artisans | search: searchQuery">
-      {{ artisan.name }} - {{ artisan.specialty }} ({{ artisan.location }})
-    </li>
-  </ul>
-  <p *ngIf="(artisans | search: searchQuery).length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
-</div>
 
 
