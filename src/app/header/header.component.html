@@ -3,32 +3,32 @@
 
   <div class="searchContain">
     <div class="search">
-      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" placeholder="Rechercher un artisan..." />
+      <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="updateFilteredArtisans()" (keydown.enter)="onSearchEnter()" placeholder="Rechercher un artisan..." />
+      <!-- goToListArtisans() -->
       <img class="icon" [src]="imageUrlSearch" [alt]="titleSearch">
     </div>
   
     <div *ngIf="searchQuery">
       <h3>Résultats de la recherche :</h3>
       <ul>
-        <li class="listeArtisan" *ngFor="let artisan of artisans | search: searchQuery" [routerLink]="'Error404'" (click)="resetSearch()">
+        <li class="listeArtisan" *ngFor="let artisan of filteredArtisans">
           {{ artisan.name }} - {{ artisan.specialty }} ({{ artisan.location }})
         </li>
       </ul>
-      <p *ngIf="(artisans | search: searchQuery).length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
+      <p *ngIf="filteredArtisans.length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
     </div>
   </div>
   
-    
-  <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
+  <div class="menu">
+    <button class="menuButton" mat-button [matMenuTriggerFor]="menu">Menu
       <img class="icon" [src]="imageUrlOpen" [alt]="titleOpen">
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Bâtiment</button>
-    <button mat-menu-item>Services</button>
-    <button mat-menu-item>Fabrication</button>
-    <button mat-menu-item>Alimentation</button>
-  </mat-menu>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Bâtiment</button>
+      <button mat-menu-item>Services</button>
+      <button mat-menu-item>Fabrication</button>
+      <button mat-menu-item>Alimentation</button>
+    </mat-menu>
+  </div>
+  
 </div>
-
-
-

@@ -226,9 +226,30 @@ export class ArtisanService {
 
   ];
 
+  constructor() { }
+
+  //retourne les artisans disponibles
   getArtisans(): Artisan[] {
     return this.artisans;
   }
 
-  constructor() { }
+  //retourne un artisan par son nom, ou null s'il n'existe pas
+  getArtisanByName(name: string): Artisan | null {
+    return this.artisans.find(artisan => artisan.name === name) || null;
+  }
+
+/**rechercher des artisans en fonction d'une requête
+  * @param query - la chaîne de recherche
+  * @returns un tableau d'artisans correspondant à la recherche
+*/
+
+  searchArtisans(query: string): Artisan[] {
+    if (!query.trim()) return this.artisans;
+
+    const lowerCaseQuery = query.toLowerCase();
+    return this.artisans.filter((artisan) =>
+    [artisan.name, artisan.specialty, artisan.location]
+    .some((field) => field.toLowerCase().includes(lowerCaseQuery))
+    );
+  }
 }

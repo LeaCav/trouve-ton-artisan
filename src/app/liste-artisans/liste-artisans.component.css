@@ -1,0 +1,39 @@
+.listeArtisan {
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fichesArtisan{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.artisan {
+    margin: 10px;
+    padding: 5px;
+}
+
+@media (max-width : 767px) {
+    .artisan {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .artisan {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .artisan {
+        width: 20%;
+    }
+}
+
+.artisan:hover {
+    border-bottom: solid 2px #0074C7;
+}

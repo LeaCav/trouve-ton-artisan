@@ -8,7 +8,8 @@
 .choice {
     margin: 10px 80px;
     padding: 20px;
-    max-width: 40%;
+    max-width: 50%;
+    min-width: 40%;
     border-radius: 20px;
     border: solid 2px #82B864;
 }
@@ -16,8 +17,8 @@
 .monthArtisan {
     margin: 10px 80px;
     padding: 20px;
-    max-width: 40%;
-    min-width: 30%;
+    max-width: fit-content;
+    min-width: 50%;
     border-radius: 20px;
     border: solid 2px #0074C7;
     text-align: center;

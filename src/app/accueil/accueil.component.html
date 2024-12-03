@@ -21,7 +21,8 @@
                 <div *ngIf="i === sliderIndex"> <!--i prends successivement les valeurs des diférentes lignes générées par *ngFor-->
                     <img [src]="artisan.imageUrl" alt="{{artisan.name}}">
                     <h2>{{artisan.name}}</h2>
-                    <strong>{{artisan.note}} /5</strong>
+                    <strong>{{artisan.note}}
+                        <img [src]="imageStarUrl" [alt]="titleStar"> /5</strong>
                     <p>{{artisan.specialty}}</p>
                     <p>{{artisan.location}}</p>
                 </div>

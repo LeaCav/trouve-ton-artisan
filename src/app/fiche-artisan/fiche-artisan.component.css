@@ -1,0 +1,45 @@
+.ficheArtisanContain {
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ficheArtisan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        width: 40%;
+    }
+
+    strong {
+        text-align: center;
+    }
+        strong img {
+            width: auto;
+        }
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.email, .matFormMessage {
+    width: 50%;
+}
+
+
+button {
+    width:fit-content;
+    background-color: #0074C7;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 0.8%;
+}
+button:active {
+    background-color: #00497C;
+}

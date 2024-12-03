@@ -4,7 +4,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { ArtisanService } from '../artisan.service';
+import { ArtisanService } from '../services/artisan.service'; 
 import { Artisan } from '../model/artisan';
 import { TopArtisansPipe } from '../pipe/top-artisans.pipe';
 
@@ -24,16 +24,21 @@ export class AccueilComponent implements OnInit{
   artisans: Artisan[] = [];
   topArtisans: Artisan[] = [];
 
+  imageStarUrl!: string;
+  titleStar!: string;
+
   constructor(private artisanService: ArtisanService) {}
 
   ngOnInit(): void {
     this.artisans = this.artisanService.getArtisans();
     this.topArtisans = this.artisans.filter(artisan => artisan.top);
     this.sliderIndex = 0;
+
+    this.imageStarUrl = '/img/icons8-etoile-30.png';
+    this.titleStar = "etoile";
   }
 
   onSlideChange(event: any): void {
     this.sliderIndex = event.value;
   }
-  
 }

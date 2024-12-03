@@ -1,0 +1,61 @@
+<div class="ficheArtisanContain">
+  <div class="ficheArtisan" *ngIf="artisan">
+    <h1>Fiche de l'artisan {{artisan.name}}</h1>
+    <img [src]="artisan.imageUrl" [alt]="artisan.name">
+    <strong>{{artisan.note}}
+      <img [src]="imageStarUrl" [alt]="titleStar"> /5</strong> <br>
+    <p>{{artisan.specialty}} - {{artisan.location}}</p>
+    <h2>A propos</h2>
+    <p>{{artisan.about}}</p>
+  </div>
+
+  <div class="contact" *ngIf="!artisan">
+      <p>Aucun artisan trouvé avec le nom "{{ artisanName }}".</p>
+    </div>
+
+    <a *ngIf="artisan && artisan.website" [href]="artisan.website" target="_blank">{{artisan.website}}</a>
+
+  <h2>Contacter votre artisan</h2>
+
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+    <div class="contactMain">
+      <div class="contactForm">
+        <table class="tableName" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>Prénom</mat-label>
+                <input matInput formControlName="firstName">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="lastName">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="email" >
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email">
+          <mat-error *ngIf="contactForm.get('email')?.hasError('email')&& !contactForm.get('email')?.hasError('required')">
+            Adresse email invalide
+          </mat-error>
+          <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+            Adresse email requise
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="matFormMessage">
+          <mat-label>Message</mat-label>
+          <textarea matInput formControlName="message" maxlength="256" placeholder="Ex. Je souhaiterais avoir des renseignements..."></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
+      </div>
+    </div>
+  </form>
+</div>
+

@@ -7,15 +7,21 @@ import { Artisan } from '../model/artisan';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(artisans: Artisan[], searchQuery: string): Artisan[] {
-    if (!searchQuery) return artisans;
+/**filtre les artisans en fonction de la requête de recherche
+ * @param artisans - liste des artisans
+ * @param searchQuery - chaîne de recherche
+ * @returns liste des artisans correspondant à la recherche
+ */
+transform(artisans: Artisan[] | null, searchQuery: string): Artisan[] {
+  if (!artisans?.length || !searchQuery) {
+    return artisans || [];
+  }
 
-    const lowerCaseQuery = searchQuery.toLowerCase();
+  const lowerCaseQuery = searchQuery.toLowerCase();
 
     return artisans.filter(artisan =>
-      artisan.name.toLowerCase().includes(lowerCaseQuery) ||
-      artisan.specialty.toLowerCase().includes(lowerCaseQuery) ||
-      artisan.location.toLocaleLowerCase().includes(lowerCaseQuery)
+      [artisan.name, artisan.specialty, artisan.location]
+      .some(field => field.toLowerCase().includes(lowerCaseQuery))
     );
   }
 }

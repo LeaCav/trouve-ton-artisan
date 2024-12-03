@@ -1,0 +1,19 @@
+<div class="listeArtisan">
+    <h1>Liste des Artisans</h1>
+
+    <p *ngIf="filteredArtisans.length === 0">Aucun artisan trouvé pour "{{ searchQuery }}".</p>
+
+    <div class="fichesArtisan" *ngIf="filteredArtisans.length > 0">
+      <mat-card class="artisan" *ngFor="let artisan of filteredArtisans" [routerLink]="['/fiche-artisan', artisan.name]">
+        <mat-card-header>
+          <mat-card-title>{{ artisan.name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="artisan.imageUrl" [alt]="artisan.name">
+        <mat-card-content>
+          <strong>{{artisan.note}}
+            <img [src]="imageStarUrl" [alt]="titleStar"> /5</strong>
+          <p>{{ artisan.specialty }} - {{ artisan.location }}</p>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</div>
