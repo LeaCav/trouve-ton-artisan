@@ -21,6 +21,10 @@
         }
 }
 
+.web {
+    width: 2.5rem;
+}
+
 .contactForm {
     display: flex;
     flex-direction: column;

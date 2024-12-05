@@ -29,6 +29,8 @@ export class FicheArtisanComponent implements OnInit{
 
   imageStarUrl!: string;
   titleStar!: string;
+  imageWebUrl!: string;
+  titleWeb!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,6 +51,8 @@ export class FicheArtisanComponent implements OnInit{
 
     this.imageStarUrl = '/img/icons8-etoile-30.png';
     this.titleStar = "etoile";
+    this.imageWebUrl = '/img/icons8-domaine-48.png';
+    this.titleWeb = 'web';
   }
 
   private loadArtisan(name: string): void {

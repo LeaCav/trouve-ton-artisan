@@ -8,17 +8,20 @@
 .choice {
     margin: 10px 80px;
     padding: 20px;
-    max-width: 50%;
+    max-width: fit-content;
     min-width: 40%;
     border-radius: 20px;
     border: solid 2px #82B864;
+    h1{
+        text-align: center;
+    }
 }
 
 .monthArtisan {
     margin: 10px 80px;
     padding: 20px;
     max-width: fit-content;
-    min-width: 50%;
+    min-width: 40%;
     border-radius: 20px;
     border: solid 2px #0074C7;
     text-align: center;

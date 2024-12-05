@@ -13,7 +13,8 @@
       <p>Aucun artisan trouvé avec le nom "{{ artisanName }}".</p>
     </div>
 
-    <a *ngIf="artisan && artisan.website" [href]="artisan.website" target="_blank">{{artisan.website}}</a>
+    <a *ngIf="artisan && artisan.website" [href]="artisan.website" target="_blank">
+      <img class="web" [src]="imageWebUrl" [alt]="titleWeb">{{artisan.website}}</a>
 
   <h2>Contacter votre artisan</h2>
 

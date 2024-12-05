@@ -1,3 +1,46 @@
+
+# Consignes du Projet Trouve Ton Artisan
+
+## Le projet présenté comporte les contraintes suivantes:
+
+Technologies à utiliser:
+
+    - utilisation de Figma pour le maquettage;
+    - utilisation de ReactJS ou AngularJS;
+    - utilisation des langages HTML5, Bootstrap, Sass, JS;
+    - Visual Studio Code;
+    - Git et Github pour le versionning.
+
+Utiliser un outil de maquettage, construire la maquette d'une application optimisée pour chacun des équipements ciblés, l'enchaînement et la composition des écrans.
+Suivre les recommandations du W3C web et web mobile.
+Utiliser un framework de type adaptatif, utiliser un outil de gestion de version, écrire un algorithme.
+Intégrer dans une page web des scriptes évèenementiels avec un langage de script client.
+Aéliorer le site en utilisant des mécanismes asynchrones, corriger les erreurs et remédier aux vulnérabilités détectées.
+
+## Livrable attendu
+
+un dossier au format PDF comprenant:
+    - les maquettes Figma : captures d'écran + lien;
+    - lien vers le repository GitHub;
+    - le lien du site accessible en ligne;
+    - les captures d'écran des validateurs W3C;
+    - la liste des éléments mis en place concernant la sécurité.
+
+## La mission
+
+Créer le design et le code de la partie frontend d'une plateforme dédiée aux artisans de la région Auvergne Rhône-Alpes pour permettre aux particuliers de trouver facilement un artisan et les informations le concernant (prestations, tarifs).
+    - Le site doit être accessible à tous (jeunes, personnes âgées, personnes en situation de handicap...) : UX design, WCAG 2.1
+    - Le site doit être responsive et mobile first.
+    - Veiller aux bonnes pratiques de sécurité.
+    - Le site doit s'intégrer à l'environnement numérique déjà existant : design similaire, respect de la charte graphique.
+
+
+
+***
+***
+***
+***
+
 # TrouveTonArtisan
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
